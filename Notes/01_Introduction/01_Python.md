@@ -120,7 +120,7 @@ run, you may have to hit "Return" once after you’ve pasted it in.
 Use cut-and-paste to execute the Python statements in this session:
 
 ```python
->>> 12 + 20
+>>> [12 + 20](https://github.com/AlekPhilly/practical-python.git)
 32
 >>> (3 + 4
          + 5 + 6)

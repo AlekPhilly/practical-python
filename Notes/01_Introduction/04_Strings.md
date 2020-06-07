@@ -278,15 +278,15 @@ Strings are arrays of characters. Try extracting a few characters:
 
 ```python
 >>> symbols[0]
-?
+A
 >>> symbols[1]
-?
+A
 >>> symbols[2]
-?
+P
 >>> symbols[-1]        # Last character
-?
+O
 >>> symbols[-2]        # Negative indices are from end of string
-?
+C
 >>>
 ```
 

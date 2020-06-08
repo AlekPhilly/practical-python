@@ -7,14 +7,12 @@ def read_portfolio(filename):
     with open(filename) as file:
         rows = csv.reader(file)
         portfolio = []
-        next(rows)
-        for row in rows:
-            holding = {
-                'name': row[0], 
-                'shares': int(row[1]),
-                'price': float(row[2])
-            }
-            portfolio.append(holding)
+        headers = next(rows)
+        for num, row in enumerate(rows):
+            record = dict(zip(headers, row))
+            record['shares'] = int(record['shares'])
+            record['price'] = float(record['price'])
+            portfolio.append(record)
     return portfolio
 
 def read_prices(filename):
@@ -26,7 +24,7 @@ def read_prices(filename):
                 prices[row[0]] = float(row[1])
             except IndexError:
                 print('Empty line')
-                pass
+                continue
     return prices
 
 def make_report(stocks_list, prices_dict):

@@ -8,15 +8,16 @@ def portfolio_cost(filename):
     with open(filename) as file:
         rows = csv.reader(file)
         cost = 0
-        next(rows)
-        for row in rows:
+        headers = next(rows)
+        for num, row in enumerate(rows, start=1):
+            record = dict(zip(headers,row))
             try:
-                qty = int(row[1])
-                price = float(row[2])
+                qty = int(record['shares'])
+                price = float(record['price'])
                 cost += qty*price
             except ValueError:
-                print("Can't read the line")
-                pass
+                print(f"Row {num}: Couldn't convert: {row}")
+                continue
     return cost
 
 if len(sys.argv) == 2:
